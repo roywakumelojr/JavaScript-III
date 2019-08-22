@@ -140,3 +140,49 @@ Humanoid.prototype.greet = function () {
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
+
+  function Villain(villainAttributes) {
+    Humanoid.call(this, villainAttributes);
+  }
+
+  Villain.prototype = Object.create(Humanoid.prototype);
+
+  const villain = new Humanoid({
+    createdAt: new Date(),
+    dimensions: {
+      length: 6,
+      width: 6,
+      height: 6,
+    },
+    healthPoints: 20,
+    name: 'Cookie Monster',
+    team: 'the land of Cookies',
+    weapons: [
+      'rolling pin',
+    ],
+    language: 'cookielicious',
+  });
+
+
+
+  function Hero(heroAttributes) {
+    Humanoid.call(this, heroAttributes);
+  }
+
+  Hero.prototype = Object.create(Humanoid.prototype);  
+
+  const hero = new Humanoid({
+    createdAt: new Date(),
+    dimensions: {
+      length: 4,
+      width: 4,
+      height: 4,
+    },
+    healthPoints: 40,
+    name: 'super wings',
+    team: 'plane Kingdom',
+    weapons: [
+      'lightning',
+    ],
+    language: 'common language',
+  });
